@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "loan-quoter",
-    "slug": "loan-quoter",
+    "name": "react_nt_loan_quoter",
+    "slug": "react_nt_loan_quoter",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

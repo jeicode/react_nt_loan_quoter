@@ -1,20 +1,47 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import QuoterForm from './src/components/QuoterForm';
+import Results from './src/components/Results';
+import colors from './src/shared/utils/colors';
+import { CalculateContextProvider } from './src/context/CalculateContex';
+import CalculateResult from './src/components/CalculateResult';
 
 export default function App() {
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <CalculateContextProvider>
+      <StatusBar style="light" />
+      <SafeAreaView style={styles.safeArea}>
+        {/* background */}
+        <View style={styles.background} />
+        {/* background */}
+        <Text style={styles.titleApp}>Loan Quoter</Text>
+        <QuoterForm />
+      </SafeAreaView>
+      <Results />
+      <CalculateResult/>
+    </CalculateContextProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  safeArea: {
+    height: 290,
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  background: {
+    backgroundColor: colors.PRIMARY_COLOR,
+    height: 200,
+    width: '100%',
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    position: 'absolute',
+    zIndex: -1,
+  },
+  titleApp: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginTop: 50,
   },
 });
